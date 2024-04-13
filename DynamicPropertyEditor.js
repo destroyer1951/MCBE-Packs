@@ -1,8 +1,8 @@
-function getPlayerDynamicProperty(objective, player) {
+function getPlayerDynamicProperty(player, objective) {
     return world.getDynamicProperty(`${player.id}:${objective}`)
 }
 
-function setPlayerDynamicProperty(objective, player, value, add = false) {
+function setPlayerDynamicProperty(player, objective, value, add = false) {
     add && typeof value === 'number' ? world.setDynamicProperty(`${player.id}:${objective}`, value + world.getDynamicProperty(`${player.id}:${objective}`)) : world.setDynamicProperty(`${player.id}:${objective}`, value)
 }
 
