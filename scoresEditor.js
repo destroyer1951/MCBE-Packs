@@ -1,4 +1,4 @@
-function getScore(objective, target) {
+function getScore(target, objective) {
     try {
         if (world.scoreboard.getObjective(objective).getScore(typeof target === 'string' ? target : target.scoreboardIdentity) === undefined) {
             return 0
@@ -8,7 +8,7 @@ function getScore(objective, target) {
     }
 }
 
-function setScore(objective, target, amount, add = false) {
+function setScore(target, objective, amount, add = false) {
     const scoreObj = world.scoreboard.getObjective(objective)
     const score = (add ? scoreObj?.getScore(target) ?? 0 : 0) + amount
     scoreObj?.setScore(target, score)
