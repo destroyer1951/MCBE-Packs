@@ -1,5 +1,9 @@
-// credit to @herobrine64 for writing a lot of this
+import {world, ItemStack} from '@minecraft/server' // ItemStack must be imported for this to work.
+player.getComponent('minecraft:inventory').container.addItem(new ItemStack('iron_ingot', 1)) // Add item to player's inventory like the /give command would
 
+const item = player.getComponent('equippable').getEquipment('Mainhand'); // Get mainhand item of a player
+
+// credit to @herobrine643928 for writing most of the code below
 const checkItemAmount = (player, itemId, clearItems = false) => {
     const inventory = player.getComponent("inventory").container
     let itemAmount = 0
