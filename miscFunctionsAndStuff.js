@@ -3,7 +3,7 @@
 // check for player's gamemode, param is player object and gamemode string
 function isPlayerInGameMode(player, gamemode) {
     return world.getPlayers({ name: player.name, gameMode: gameMode }).length > 0;
-}
+} // pretty sure there is a method in the player class for this now (or maybe there always was?)
 
 // check for ench, returns level of ench (0 if none)
 const item = data.player.getComponent('inventory').container.getItem(data.player.selectedSlot)
