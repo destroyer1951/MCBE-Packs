@@ -36,7 +36,7 @@ function getGlobalDynamicProperty(objective) {
 }
 
 function setGlobalDynamicProperty(objective, value, add = false) {
-    add && typeof value === 'number' ? world.setDynamicProperty(objective, world.getDynamicProperty(objective)) + value : world.setDynamicProperty(objective, value)
+    add && typeof value === 'number' ? world.setDynamicProperty(objective, world.getDynamicProperty(objective)+value) : world.setDynamicProperty(objective, value)
 }
 
 function ensureKeys(obj, cls) { // powered by chatgpt ahh code
