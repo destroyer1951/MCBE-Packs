@@ -52,7 +52,11 @@ function createItem(typeId, name, lore, amount = 1) {
     return item
 }
 
-
+world.afterEvents.playerSpawn.subscribe(data => {
+    if (!data.initialSpawn) return
+    const player = data.player
+    player.sendMessage('This world uses Data Storage Basket. Any name changes will result in permanent data loss. You have been warned.')
+})
 
 world.beforeEvents.chatSend.subscribe(data => {
     if (data.message.startsWith('-') && data.sender.hasTag('admin')) {
