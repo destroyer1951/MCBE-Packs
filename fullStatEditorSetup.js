@@ -55,7 +55,7 @@ function createItem(typeId, name, lore, amount = 1) {
 world.afterEvents.playerSpawn.subscribe(data => {
     if (!data.initialSpawn) return
     const player = data.player
-    player.sendMessage('§cThis world uses Data Storage Basket. Any name changes will result in §lpermanent§r§c data loss. You have been warned.')
+    player.sendMessage('§cThis world uses Data Storage Basket created by destroyer1951. Any name changes will result in §lpermanent§r§c data loss. You have been warned.')
 })
 
 world.beforeEvents.chatSend.subscribe(data => {
