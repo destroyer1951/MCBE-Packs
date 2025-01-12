@@ -84,7 +84,8 @@ world.beforeEvents.chatSend.subscribe(data => {
                 })
                 return;
             } case 'setplayerprop':{
-                const propData = data.message.substring(15).split(' ')
+                let propData
+                propData = data.message.substring(15).match(/(?:[^\s"]+|"[^"]*")+/g).map(arg => arg.replace(/"/g, ""));
                 const property = propData[1]
                 let name = propData[0].toLowerCase().replace('@', '')
                 let newValue = propData[2]
@@ -101,7 +102,7 @@ world.beforeEvents.chatSend.subscribe(data => {
                 }
                 
 
-world.sendMessage(`§aInformation for the global property §e${property}
+world.sendMessage(`§aInformation for the player property §e${property}
 
 §aPlayer Name: §e${name}
 §aProperty Name: §e${property}
@@ -109,12 +110,13 @@ world.sendMessage(`§aInformation for the global property §e${property}
 §aNew Value: §e${world.getDynamicProperty(`${name}:${property}`)}`)
                 return;
             } case 'getplayerprop':{
-                const propData = data.message.substring(15).split(' ')
+                let propData
+                propData = data.message.substring(15).match(/(?:[^\s"]+|"[^"]*")+/g).map(arg => arg.replace(/"/g, ""));
                 const property = propData[1]
                 let name = propData[0].toLowerCase().replace('@', '')
                 const value = world.getDynamicProperty(`${name}:${property}`)
 
-world.sendMessage(`§aInformation for the global property §e${property}
+world.sendMessage(`§aInformation for the player property §e${property}
 
 §aPlayer Name: §e${name}
 §aProperty Name: §e${property}
