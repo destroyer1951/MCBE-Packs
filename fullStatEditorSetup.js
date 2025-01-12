@@ -79,20 +79,6 @@ world.beforeEvents.chatSend.subscribe(data => {
                     player.getComponent('equippable').setEquipment('Mainhand', item)
                 })
                 return;
-            } case 'renameblock':{
-                const item = player.getComponent('equippable').getEquipment('Mainhand')
-                system.run(() => {
-                    item.nameTag = `${data.message.substring(13)}`
-                    player.getComponent('equippable').setEquipment('Mainhand', item)
-                })
-                return;
-            } case 'item':{
-                const inv = player.getComponent('inventory').container
-                system.run(() => {
-                    item = createItem('minecraft:leather_helmet', '§r§fHydrogen Helmet', ['§r§7Protons: §e1', '§r§7Electrons: §c0/1 §8(stable)', '§r§7Neutrons: §a0/1 §8(stable)'])
-                    inv.addItem(item)
-                })
-                return;
             } case 'setplayerprop':{
                 const propData = data.message.substring(15).split(' ')
                 const property = propData[1]
