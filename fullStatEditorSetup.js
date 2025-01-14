@@ -9,7 +9,7 @@ function getPlayerDynamicProperty(player, objective) {
 }
 
 function setPlayerDynamicProperty(player, objective, value, add = false) {
-    add && typeof value === 'number' ? world.setDynamicProperty(`${player.name.toLowerCase()}:${objective}`,  world.getDynamicProperty(`${player.name.toLowerCase()}:${objective}`) + value) : world.setDynamicProperty(`${player.name.toLowerCase()}:${objective}`, value)
+    add && typeof value === 'number' && world.getDynamicProperty(`${player.name.toLowerCase()}:${objective}`) ? world.setDynamicProperty(`${player.name.toLowerCase()}:${objective}`,  world.getDynamicProperty(`${player.name.toLowerCase()}:${objective}`) + value) : world.setDynamicProperty(`${player.name.toLowerCase()}:${objective}`, value)
 }
 
 function getGlobalDynamicProperty(objective) {
@@ -17,7 +17,7 @@ function getGlobalDynamicProperty(objective) {
 }
 
 function setGlobalDynamicProperty(objective, value, add = false) {
-    add && typeof value === 'number' ? world.setDynamicProperty(objective, world.getDynamicProperty(objective)+value) : world.setDynamicProperty(objective, value)
+    add && typeof value === 'number' && world.getDynamicProperty(objective) ? world.setDynamicProperty(objective, world.getDynamicProperty(objective)+value) : world.setDynamicProperty(objective, value)
 }
 
 function getScore(target, objective) {
