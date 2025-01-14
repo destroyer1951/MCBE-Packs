@@ -94,7 +94,8 @@ world.beforeEvents.chatSend.subscribe(data => {
                     newValue = Number(newValue)
                     if (propData[3] == 'add' || propData[3] == 'true') add = true
                 }
-                const oldValue = world.getDynamicProperty(`${name}:${property}`)
+                let oldValue = world.getDynamicProperty(`${name}:${property}`)
+                if (!oldValue && add) oldValue = 0
                 if (add) {
                     world.setDynamicProperty(`${name}:${property}`, oldValue+newValue)
                 } else {
